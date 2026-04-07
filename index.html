@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오프라인 냉장고 시뮬레이터</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>🥶 오프라인 냉장고 시뮬레이터</h1>
+      <p>음식을 넣고 꺼내면서 만들 수 있는 요리를 확인해보세요.</p>
+    </header>
+
+    <main class="layout">
+      <aside class="panel food-panel">
+        <h2>넣을 수 있는 음식</h2>
+        <div id="foodList" class="food-list" aria-live="polite"></div>
+      </aside>
+
+      <section class="panel fridge-panel">
+        <h2>냉장고 내부</h2>
+        <p id="statusMessage" class="status" role="status">사이드에서 음식을 추가해보세요.</p>
+        <div id="fridge" class="fridge" aria-label="냉장고 안의 음식"></div>
+      </section>
+
+      <section class="panel recipe-panel">
+        <h2>추천 요리</h2>
+        <div id="recipeList" class="recipe-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
