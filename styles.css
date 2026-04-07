@@ -29,7 +29,7 @@ body {
 
 .layout {
   display: grid;
-  grid-template-columns: 280px 1fr 320px;
+  grid-template-columns: 220px 1fr 300px;
   gap: 1rem;
   padding: 1rem;
 }
@@ -61,12 +61,30 @@ body {
   background: #fdfefe;
 }
 
+.compact-panel {
+  min-height: 420px;
+}
+
+.food-list {
+  grid-template-columns: 1fr;
+}
+
+.food-card {
+  grid-template-columns: 34px 1fr;
+  gap: 0.35rem;
+  padding: 0.5rem;
+}
+
 .food-card img,
 .recipe-card img,
 .fridge-item img {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   object-fit: contain;
+}
+
+.food-card strong {
+  font-size: 0.92rem;
 }
 
 button {
@@ -79,6 +97,10 @@ button {
 .add-btn {
   background: var(--accent);
   color: #fff;
+  grid-column: 1 / -1;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.55rem;
 }
 
 .remove-btn {
@@ -88,15 +110,35 @@ button {
 
 .fridge {
   margin-top: 0.75rem;
-  border: 2px dashed #9db8e8;
-  border-radius: 14px;
+  border: 10px solid #dce9ff;
+  border-radius: 26px;
   min-height: 420px;
-  padding: 1rem;
+  padding: 1.15rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
   gap: 0.8rem;
   align-content: start;
-  background: linear-gradient(160deg, #eef5ff, #dbe9ff);
+  background:
+    linear-gradient(transparent 31%, rgba(136, 166, 214, 0.55) 31.6%, transparent 32.2%),
+    linear-gradient(transparent 64%, rgba(136, 166, 214, 0.55) 64.6%, transparent 65.2%),
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.95), transparent 42%),
+    linear-gradient(160deg, #f7fbff, #d9e8ff 50%, #c9ddfd);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.9),
+    inset 0 -30px 40px rgba(128, 157, 203, 0.28);
+  position: relative;
+}
+
+.fridge::before {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 18px;
+  bottom: 18px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b6cbef, #8baada);
+  opacity: 0.85;
 }
 
 .fridge-item {
