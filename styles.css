@@ -1,0 +1,196 @@
+:root {
+  --bg: #f4f8ff;
+  --panel: #ffffff;
+  --line: #d4deef;
+  --text: #1d2a40;
+  --accent: #3f7de8;
+  --danger: #e05a5a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans KR", system-ui, sans-serif;
+  background: linear-gradient(180deg, #eff5ff 0%, #f8fbff 100%);
+  color: var(--text);
+}
+
+.app-header {
+  text-align: center;
+  padding: 1.2rem 1rem 0.6rem;
+}
+
+.app-header h1 {
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr 300px;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem;
+  min-height: 520px;
+  box-shadow: 0 6px 20px rgba(50, 90, 160, 0.08);
+}
+
+.food-list,
+.recipe-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.food-card,
+.recipe-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.7rem;
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fdfefe;
+}
+
+.compact-panel {
+  min-height: 420px;
+}
+
+.food-list {
+  grid-template-columns: 1fr;
+}
+
+.food-card {
+  grid-template-columns: 34px 1fr;
+  gap: 0.35rem;
+  padding: 0.5rem;
+}
+
+.food-card img,
+.recipe-card img,
+.fridge-item img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.food-card strong {
+  font-size: 0.92rem;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+}
+
+.add-btn {
+  background: var(--accent);
+  color: #fff;
+  grid-column: 1 / -1;
+  margin-top: 0.2rem;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.55rem;
+}
+
+.remove-btn {
+  background: var(--danger);
+  color: #fff;
+}
+
+.fridge {
+  margin-top: 0.75rem;
+  border: 10px solid #dce9ff;
+  border-radius: 26px;
+  min-height: 420px;
+  padding: 1.15rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 0.8rem;
+  align-content: start;
+  background:
+    linear-gradient(transparent 31%, rgba(136, 166, 214, 0.55) 31.6%, transparent 32.2%),
+    linear-gradient(transparent 64%, rgba(136, 166, 214, 0.55) 64.6%, transparent 65.2%),
+    radial-gradient(circle at 12% 10%, rgba(255, 255, 255, 0.95), transparent 42%),
+    linear-gradient(160deg, #f7fbff, #d9e8ff 50%, #c9ddfd);
+  box-shadow:
+    inset 0 0 0 4px rgba(255, 255, 255, 0.9),
+    inset 0 -30px 40px rgba(128, 157, 203, 0.28);
+  position: relative;
+}
+
+.fridge::before {
+  content: "";
+  position: absolute;
+  right: 12px;
+  top: 18px;
+  bottom: 18px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b6cbef, #8baada);
+  opacity: 0.85;
+}
+
+.fridge-item {
+  border: 1px solid #afc8f4;
+  border-radius: 12px;
+  padding: 0.5rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  animation: pop 180ms ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.94);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.status {
+  margin: 0;
+  color: #51688f;
+}
+
+.recipe-card {
+  grid-template-columns: 44px 1fr;
+}
+
+.recipe-card small {
+  color: #4b6082;
+}
+
+.empty {
+  padding: 0.8rem;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: #5b7196;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    min-height: unset;
+  }
+
+  .fridge {
+    min-height: 280px;
+  }
+}
